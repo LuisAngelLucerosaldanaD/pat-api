@@ -13,9 +13,8 @@ var (
 )
 
 type configuration struct {
-	App    App    `json:"app"`
-	DB     DB     `json:"db"`
-	Ecatch Ecatch `json:"ecatch"`
+	App App `json:"app"`
+	DB  DB  `json:"db"`
 }
 
 type App struct {
@@ -23,6 +22,7 @@ type App struct {
 	Port              int    `json:"port"`
 	AllowedDomains    string `json:"allowed_domains"`
 	PathLog           string `json:"path_log"`
+	RSAPrivateKey     string `json:"rsa_private_key"`
 	LogReviewInterval int    `json:"log_review_interval"`
 	Language          string `json:"language"`
 	LoggerHttp        bool   `json:"logger_http"`
@@ -42,13 +42,6 @@ type DB struct {
 	Instance string `json:"instance"`
 	IsSecure bool   `json:"is_secure"`
 	SSLMode  string `json:"ssl_mode"`
-}
-
-type Ecatch struct {
-	UserName string `json:"username"`
-	Password string `json:"password"`
-	UrlAuth  string `json:"url_auth"`
-	UrlGql   string `json:"url_gql"`
 }
 
 func NewConfiguration() *configuration {
